@@ -1,28 +1,28 @@
 resource "aws_vpc" "main" {
   cidr_block = "10.10.0.0/16"
-  tags = { Name = "${local.name}-vpc" }
+  tags       = { Name = "${local.name}-vpc" }
 }
 
 resource "aws_subnet" "public" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.10.1.0/24"
-  availability_zone = "us-east-1a"
+  vpc_id                  = aws_vpc.main.id
+  cidr_block              = "10.10.1.0/24"
+  availability_zone       = "us-east-1a"
   map_public_ip_on_launch = true
-  tags = { Name = "${local.name}-public-subnet" }
+  tags                    = { Name = "${local.name}-public-subnet" }
 }
 
 resource "aws_subnet" "private_a" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.10.2.0/24"
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.10.2.0/24"
   availability_zone = "us-east-1a"
-  tags = { Name = "${local.name}-private-a" }
+  tags              = { Name = "${local.name}-private-a" }
 }
 
 resource "aws_subnet" "private_b" {
-  vpc_id     = aws_vpc.main.id
-  cidr_block = "10.10.3.0/24"
+  vpc_id            = aws_vpc.main.id
+  cidr_block        = "10.10.3.0/24"
   availability_zone = "us-east-1b"
-  tags = { Name = "${local.name}-private-b" }
+  tags              = { Name = "${local.name}-private-b" }
 }
 
 resource "aws_internet_gateway" "igw" {
