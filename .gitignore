@@ -9,3 +9,4 @@ crash.log
 *.log
 terraform.tfstate
 terraform.tfstate.backup
+git-filter-repo/
