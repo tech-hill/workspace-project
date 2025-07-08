@@ -116,7 +116,7 @@ resource "aws_instance" "public_ec2" {
               #!/bin/bash
               yum update -y
               yum install -y httpd
-              echo '<html><head><title>My Website Home Page</title></head><body><h1>Happy Memorial Day AJIBOLA OF HOUSTON</h1><p>Happy weekend sir!</p><p>From Tech-Hill!</p></body></html>' > /var/www/html/index.html
+              echo '<html><head><title>My Website Home Page</title></head><body><h1>Happy INDEPENDENCE DAY IN HOUSTON</h1><p>Happy weekend sir!</p><p>From Tech-Hill!</p></body></html>' > /var/www/html/index.html
               systemctl enable httpd
               systemctl start httpd
               EOF
@@ -147,7 +147,7 @@ resource "aws_instance" "private_ec2" {
                 email VARCHAR(100)
               );
               INSERT INTO users (username, email) VALUES ('tejumola', 'tejumola@tech-hill.com');
-              INSERT INTO users (username, email) VALUES ('ajibola', 'ajibola@houston.com');
+              INSERT INTO users (username, email) VALUES ('ajibola', 'aji@houston.com');
               SQL
               mysql -h ${aws_db_instance.mysql.address} -u ${var.db_username} -p${data.aws_secretsmanager_secret_version.db_password.secret_string} < /tmp/init.sql
               EOF
